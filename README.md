@@ -1,4 +1,4 @@
-# Linkedin-vizualization
+# Linkedin-visualization
 ## Project Description 
 ### Overview
 Visualization of data gives us a lot of inspiration and reveal new aspects of the data. We focus on LinkedIn, which is a employment-oriented SNS service, and visualize the connection of LinkedIn users, the change of the follower's changes.
