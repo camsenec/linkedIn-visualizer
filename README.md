@@ -24,12 +24,17 @@ we only develop at master branch.
 ### First step (in the process to generate various ideas for vizualizing data)
 1. Do not edit files the other created 
 2. To update, excecute the following command (you can do it using some GUI tools such as sourcetree or vizual studio code)
-'''
+```
 git pull origin master
 git add . (git add <edited_file>, where <edited_file> is a file you want add to the staging area)
 git commit -m "Commit messsage (e.g. anything is OK)
 git push origin master
-'''
+```
+Or, 
+```
+fork this repository
+develop it in your folked repository and make a pull request
+```
 
 ### Second step (in the process to combine ideas)
 TBD
