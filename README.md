@@ -18,6 +18,7 @@ we implement step1 and step2 as the alpha version (Deadline: April 29) and step2
 - Dash Introduction : https://dash.plotly.com/introduction
 - Dash Documentation : https://dash.plotly.com/
 
+
 ## Development Rules
 These are rules to avoid conflict while developing only at master branch. 
 ### First step (in the process to generate various ideas for vizualizing data)
