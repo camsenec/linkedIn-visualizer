@@ -19,8 +19,7 @@ we implement step1 and step2 as the alpha version (Deadline: April 29) and step2
 - Dash Documentation : https://dash.plotly.com/
 
 ## Development Rules
-These are rules to avoid conflict
-we only develop at master branch. 
+These are rules to avoid conflict while developing only at master branch. 
 ### First step (in the process to generate various ideas for vizualizing data)
 1. Do not edit files the other created 
 2. To update, excecute the following command (you can do it using some GUI tools such as sourcetree or vizual studio code)
