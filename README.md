@@ -40,5 +40,5 @@ develop it in your folked repository and make a pull request
 TBD
 
 ## Contributors
-Yusef Ward
+Yusef Ward             
 Tomoya Tanaka
