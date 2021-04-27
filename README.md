@@ -1,4 +1,13 @@
 # Linkedin-visualization
+## Development
+```
+git clone https://github.com/camsenec/linkedIn-vizualization.git
+pip3 install -r requirements.txt
+python3 app/app.py
+open http://127.0.0.1:8050 (Default) on your browser
+Drag and Drop your Connection.csv to the given form
+```
+
 ## Project Description 
 ### Overview
 Visualization of data gives us a lot of inspiration and reveal new aspects of the data. We focus on LinkedIn, which is a employment-oriented SNS service, and visualize the connection of LinkedIn users, the change of the follower's changes.
