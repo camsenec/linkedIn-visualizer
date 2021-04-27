@@ -10,8 +10,8 @@ import visualizer
 app = dash.Dash(__name__)
 app.title = "LinkedIn Visualizer"
 
-connections_df = pd.read_csv('../input/sample1/Connections.csv')
-connections_df["Connected On"] = connections_df["Connected On"].apply(lambda x: datetime.datetime.strptime(x, "%d-%b-%y").strftime("%Y-%m-%d"))
+#connections_df = pd.read_csv('../input/sample1/Connections.csv')
+#connections_df["Connected On"] = connections_df["Connected On"].apply(lambda x: datetime.datetime.strptime(x, "%d-%b-%y").strftime("%Y-%m-%d"))
 
 app.layout = html.Div(children=[ 
     html.Div(
