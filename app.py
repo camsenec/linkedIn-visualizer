@@ -32,7 +32,7 @@ app.layout = html.Div(children=[
         id='upload-data',
         children=html.Div([
             'Drag and Drop or ',
-            html.A('Select Files')
+            html.A('Select your Connections.csv')
         ]),
         style={
             'width': '100%',

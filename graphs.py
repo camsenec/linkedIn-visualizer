@@ -12,13 +12,13 @@ def trend(connections_df):
             df.loc[index,"count"] = df.iloc[i-1]["count"] + df.loc[index,"First Name"]
             
 
-    fig1 = go.Figure()
-    fig1.add_trace(go.Scatter(x=df["Connected On"], 
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=df["Connected On"], 
                         y=df["count"]))
-    fig1.update_layout(title='Your Connection Changes',
+    fig.update_layout(title='Your Connection Changes',
                     xaxis_title='Connected On',
                     yaxis_title='Number')
-    return fig1
+    return fig
 
 def company_hist(connections_df):
     fig  = px.histogram(connections_df, x = "Company");
