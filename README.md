@@ -1,4 +1,7 @@
 # Linkedin-visualization
+## Demo
+https://linkedin-visualizer.herokuapp.com/
+
 ## Development
 ```
 git clone https://github.com/camsenec/linkedIn-visualization.git
