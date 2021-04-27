@@ -15,13 +15,14 @@ def trend(connections_df):
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=df["Connected On"], 
                         y=df["count"]))
-    fig.update_layout(title='Your Connection Changes',
+    fig.update_layout(title='Changes of your number of Connections',
                     xaxis_title='Connected On',
                     yaxis_title='Number')
     return fig
 
 def company_hist(connections_df):
-    fig  = px.histogram(connections_df, x = "Company");
+    fig  = px.histogram(connections_df, x = "Company")
+    fig.update_layout(title='Distribution of companies your connected people work')
     return fig
 
 def company_treemap(connections_df):
@@ -29,6 +30,7 @@ def company_treemap(connections_df):
     company_treemap = px.treemap(df_by_company[:100], path=["Company"],
                     values="First Name",
                     labels={"First Name": "Count"})
+    company_treemap.update_layout(title='Companies where your connected people work')
     return company_treemap
 
 def position_treemap(connections_df):
@@ -36,4 +38,5 @@ def position_treemap(connections_df):
     position_treemap = px.treemap(df_by_position[:100], path=["Position"],
                     values="First Name",
                     labels={"First Name": "Count"})
+    position_treemap.update_layout(title='Job Positions of your connected people') 
     return position_treemap
