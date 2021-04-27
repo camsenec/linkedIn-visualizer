@@ -2,6 +2,7 @@
 ## Development
 ```
 git clone https://github.com/camsenec/linkedIn-visualization.git
+cd linkedIn-visualization
 pip3 install -r requirements.txt
 python3 app/app.py
 open http://127.0.0.1:8050 (Default) on your browser
