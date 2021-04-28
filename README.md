@@ -15,7 +15,7 @@ Drag and Drop your Connection.csv to the given form
 Note: How to obtain your Connections.csv data             
 https://www.linkedin.com/help/linkedin/answer/66844/export-connections-from-linkedin?lang=en
 
-If note is included in the first three lines, delete the lines and make the line with "First line", "Last Name", ..., "Connected on" to the beggining.
+**NB!** If note is included in the first three lines, delete the lines and make the line with "First line", "Last Name", ..., "Connected on" to the beggining.
 
 ## Project Description 
 ### Overview
