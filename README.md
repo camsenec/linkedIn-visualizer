@@ -25,6 +25,11 @@ Our development plan involves 3 steps:
 1. Interact with LinkedIn API and obtain some data by python scripts
 2. visualize the obtained set of data by various ways using plotly 
 3. implement web application which generate charts based on the user input (e.g. When user request her/his connection visualization, our web app returns a illustration the represents the user's co-relation with other users).
+4. The following is the list of future works
+- Add more interactive function. 
+  (e.g. Can see a list of people with whom a user connected during a certain period, where the period is determined by a move of slider (GUI component))
+- Add more graph to visualize Connection data
+- Add other visualization such as communicated message analysis using Natural Language processing Technique. Users can select "Connection Vizualization" or "message Visualization"
 	
 we implement step1 and step2 as the alpha version (Deadline: April 29) and step2 as the beta version (Deadline: May 27). 
  
@@ -37,7 +42,6 @@ we implement step1 and step2 as the alpha version (Deadline: April 29) and step2
 
 ## Development Rules
 These are rules to avoid conflict while developing only at master branch. 
-### First step (in the process to generate various ideas for vizualizing data)
 1. Do not edit files the other created 
 2. To update, excecute the following command (you can do it using some GUI tools such as sourcetree or vizual studio code)
 ```
@@ -51,9 +55,6 @@ Or,
 fork this repository
 develop it in your folked repository and make a pull request
 ```
-
-### Second step (in the process to combine ideas)
-TBD
 
 ## Contributors
 Yusef Ward             
