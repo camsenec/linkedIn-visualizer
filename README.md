@@ -15,6 +15,8 @@ Drag and Drop your Connection.csv to the given form
 Note: How to obtain your Connections.csv data             
 https://www.linkedin.com/help/linkedin/answer/66844/export-connections-from-linkedin?lang=en
 
+If note is included in the first three lines, delete the lines and make the line with "First line", "Last Name", ..., "Connected on" to the beggining.
+
 ## Project Description 
 ### Overview
 Visualization of data gives us a lot of inspiration and reveal new aspects of the data. We focus on LinkedIn, which is a employment-oriented SNS service, and visualize the connection of LinkedIn users, the change of the follower's changes.
