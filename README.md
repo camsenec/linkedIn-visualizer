@@ -2,7 +2,7 @@
 ## Demo
 https://linkedin-visualizer.herokuapp.com/
 
-## Development
+## Usage (for Development)
 ```
 git clone https://github.com/camsenec/linkedIn-visualization.git
 cd linkedIn-visualization
