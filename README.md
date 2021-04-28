@@ -12,6 +12,9 @@ open http://127.0.0.1:8050 (Default) on your browser
 Drag and Drop your Connection.csv to the given form
 ```
 
+Note: How to obtain your Connections.csv data
+https://www.linkedin.com/help/linkedin/answer/66844/export-connections-from-linkedin?lang=en
+
 ## Project Description 
 ### Overview
 Visualization of data gives us a lot of inspiration and reveal new aspects of the data. We focus on LinkedIn, which is a employment-oriented SNS service, and visualize the connection of LinkedIn users, the change of the follower's changes.
