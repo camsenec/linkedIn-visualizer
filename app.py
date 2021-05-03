@@ -21,7 +21,7 @@ app.layout = html.Div(children=[
     html.Div(
           children=[
               html.H1(
-                  children="LinkedIn Viisualizer", className="header-title"
+                  children="LinkedIn Visualizer", className="header-title"
               ),
               html.P(
                   children="Analyze your LinkedIn Data",
