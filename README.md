@@ -7,6 +7,9 @@ https://www.linkedin.com/help/linkedin/answer/66844/export-connections-from-link
 
 **NB!** If note is included in the first three lines, delete the lines and make the line with "First line", "Last Name", ..., "Connected on" to the beggining.
 
+<img src=https://linkedin-visualizer.s3.eu-north-1.amazonaws.com/visualize.png>
+<img src=https://linkedin-visualizer.s3.eu-north-1.amazonaws.com/treemap.png>
+
 ## Usage (for Development)
 ```
 git clone https://github.com/camsenec/linkedIn-visualization.git
