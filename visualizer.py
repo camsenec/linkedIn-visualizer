@@ -16,9 +16,10 @@ def parse_contents(contents, filename, date):
     try:
         if 'csv' in filename:
             # Assume that the user uploaded a CSV file
-            connections_df = pd.read_csv(
-                io.StringIO(decoded.decode('utf-8')))
-            connections_df["Connected On"] = connections_df["Connected On"].apply(lambda x: datetime.datetime.strptime(x, "%d-%b-%y").strftime("%Y-%m-%d"))
+            if "Notes:" == decoded.decode('utf-8')[0:6]:
+                connections_df = pd.read_csv(io.StringIO(decoded.decode('utf-8').split('\n\n')[1]))
+            else:
+                connections_df = pd.read_csv(io.StringIO(decoded.decode('utf-8')))
         else:
            return html.Div([
             'This file extension is not supported'

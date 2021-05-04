@@ -21,7 +21,7 @@ app.layout = html.Div(children=[
     html.Div(
           children=[
               html.H1(
-                  children="LinkedIn Visualizer", className="header-title"
+                  children="LinkedIn Vizualizer", className="header-title"
               ),
               html.P(
                   children="Analyze your LinkedIn Data",
@@ -69,5 +69,6 @@ def update_output(list_of_contents, list_of_names, list_of_dates):
         return children
 
 
+# main function
 if __name__ == "__main__":
   app.run_server(debug=True, use_reloader=True)

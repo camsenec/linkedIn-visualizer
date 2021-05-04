@@ -1,11 +1,21 @@
 import plotly.graph_objects as go 
 import plotly.express as px
+import datetime
 
 # Changes of the number of connections
 def trend(connections_df):
+    format_cand = ["%d %b %y", "%d %b %Y", "%d-%b-%y", "%d-%b-%Y"]
+    for format in format_cand:
+        try:
+            connections_df["Connected On"] = connections_df["Connected On"].apply(lambda x: datetime.datetime.strptime(x, format).strftime("%Y-%m-%d"))
+        except:
+            print("errror")
+            continue
+        else:
+            break
+    
     df = connections_df.groupby(by="Connected On").count().reset_index()
     df["count"] = 0
-
     for i, index in enumerate(df.index):
         if i == df.index[0]:
             df.loc[index,"count"] = df.loc[index,"First Name"]
