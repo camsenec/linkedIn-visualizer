@@ -7,7 +7,8 @@ def trend(connections_df):
     format_cand = ["%d %b %y", "%d %b %Y", "%d-%b-%y", "%d-%b-%Y"]
     for format in format_cand:
         try:
-            connections_df["Connected On"] = connections_df["Connected On"].apply(lambda x: datetime.datetime.strptime(x, format).strftime("%Y-%m-%d"))
+            connections_df["Connected On"] = connections_df["Connected On"].apply(
+                lambda x: datetime.datetime.strptime(x, format).strftime("%Y-%m-%d"))
         except:
             print("errror")
             continue
@@ -39,7 +40,8 @@ def company_hist(connections_df):
 
 # Companies where connected people work
 def company_treemap(connections_df):
-    df_by_company = connections_df.groupby(by="Company").count().reset_index().sort_values(by="First Name", ascending=False).reset_index(drop=True)
+    df_by_company = connections_df.groupby(by="Company").count().reset_index().sort_values(
+        by="First Name", ascending=False).reset_index(drop=True)
     company_treemap = px.treemap(df_by_company[:100], path=["Company"],
                     values="First Name",
                     labels={"First Name": "Count"})
@@ -48,7 +50,8 @@ def company_treemap(connections_df):
 
 # Job Positions of connected people
 def position_treemap(connections_df):
-    df_by_position = connections_df.groupby(by="Position").count().reset_index().sort_values(by="First Name", ascending=False).reset_index(drop=True)
+    df_by_position = connections_df.groupby(by="Position").count().reset_index().sort_values(
+        by="First Name", ascending=False).reset_index(drop=True)
     position_treemap = px.treemap(df_by_position[:100], path=["Position"],
                     values="First Name",
                     labels={"First Name": "Count"})

@@ -10,11 +10,6 @@ app.title = "LinkedIn Visualizer"
 
 server = app.server
 
-"""
-#connections_df = pd.read_csv('../input/sample1/Connections.csv')
-#connections_df["Connected On"] = connections_df["Connected On"].apply(lambda x: datetime.datetime.strptime(x, "%d-%b-%y").strftime("%Y-%m-%d"))
-"""
-
 # HTML document that is initially displayed, which consists of a title area and an input form)
 app.layout = html.Div(children=[ 
     # title area
