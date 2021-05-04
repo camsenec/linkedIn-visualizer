@@ -7,7 +7,7 @@ https://www.linkedin.com/help/linkedin/answer/66844/export-connections-from-link
 
 **NB!** If note is included in the first three lines, delete the lines and make the line with "First line", "Last Name", ..., "Connected on" to the beggining.
 
-<img src=https://linkedin-visualizer.s3.eu-north-1.amazonaws.com/visualize.png>
+<img src=https://linkedin-visualizer.s3.eu-north-1.amazonaws.com/visualize2.png>
 <img src=https://linkedin-visualizer.s3.eu-north-1.amazonaws.com/treemap.png>
 
 ## Usage (for Development)
@@ -35,8 +35,6 @@ Our development plan involves 3 steps:
   (e.g. Can see a list of people with whom a user connected during a certain period, where the period is determined by a move of slider (GUI component))
 - Add more graph to visualize Connection data
 - Add other visualization such as communicated message analysis using Natural Language processing Technique. Users can select "Connection Vizualization" or "message Visualization"
-	
-we implement step1 and step2 as the alpha version (Deadline: April 29) and step2 as the beta version (Deadline: May 27). 
  
 ### Reference
 - LinkedIn API Documentation : https://docs.microsoft.com/en-us/linkedin/
