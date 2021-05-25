@@ -1,27 +1,26 @@
 # Linkedin-visualization
-## Demo
 https://linkedin-visualizer.herokuapp.com/
 
-##### Sample Data
+## Usage
+1. Access the link shown above
+2. Select graphs you want to see and upload a Connection.csv file (The sample file or the file you obtained from linkedin)
+
+##### Sample File
 https://linkedin-visualizer.s3.eu-north-1.amazonaws.com/Connections-sample.csv
 
-##### Note: How to obtain your Connections.csv data          
-https://www.linkedin.com/help/linkedin/answer/66844/export-connections-from-linkedin?lang=en
+##### How to obtain your Connections.csv data          
+https://www.linkedin.com/help/linkedin/answer/66844/export-connections-from-linkedin?lang=en\
 
 <img src=https://linkedin-visualizer.s3.eu-north-1.amazonaws.com/home2.png>
 
-
-
-
-
-## Usage (for Development)
+## Development
 ```
 git clone https://github.com/camsenec/linkedIn-visualization.git
 cd linkedIn-visualization
 pip3 install -r requirements.txt
 python3 app/app.py
 open http://127.0.0.1:8050 (Default) on your browser
-Drag and Drop your Connection.csv to the given form
+For test, Drag and Drop your Connection.csv to the given form
 ```
 
 ## Project Description 
