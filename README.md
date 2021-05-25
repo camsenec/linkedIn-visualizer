@@ -1,23 +1,26 @@
-# Linkedin-visualization
-## Demo
+# Linkedin-visualizer
 https://linkedin-visualizer.herokuapp.com/
 
-Note: How to obtain your Connections.csv data
-https://www.linkedin.com/help/linkedin/answer/66844/export-connections-from-linkedin?lang=en
+## Usage
+1. Access the link shown above
+2. Select graphs you want to see and upload a Connection.csv file (The sample file or the file you obtained from linkedin)
 
-**NB!** If note is included in the first three lines, delete the lines and make the line with "First line", "Last Name", ..., "Connected on" to the beggining.
+##### Sample File
+https://linkedin-visualizer.s3.eu-north-1.amazonaws.com/Connections-sample.csv
 
-<img src=https://linkedin-visualizer.s3.eu-north-1.amazonaws.com/visualize2.png>
-<img src=https://linkedin-visualizer.s3.eu-north-1.amazonaws.com/treemap.png>
+##### How to obtain your Connections.csv data          
+https://www.linkedin.com/help/linkedin/answer/66844/export-connections-from-linkedin?lang=en\
 
-## Usage (for Development)
+<img src=https://linkedin-visualizer.s3.eu-north-1.amazonaws.com/home2.png>
+
+## Development
 ```
 git clone https://github.com/camsenec/linkedIn-visualization.git
 cd linkedIn-visualization
 pip3 install -r requirements.txt
 python3 app/app.py
 open http://127.0.0.1:8050 (Default) on your browser
-Drag and Drop your Connection.csv to the given form
+For test, Drag and Drop your Connection.csv to the given form
 ```
 
 ## Project Description 
@@ -26,16 +29,17 @@ Visualization of data gives us a lot of inspiration and reveal new aspects of th
 LinkedIn provides APIs to retrieve profile, search for people and get brief information of connected users. With the retrieved data, we visualize it with a python library. The well-known library involves matplotlib and seaborn, but we use plotly in this project. The plotly generate beautiful visualization and support various functions. Besides, as an advanced version, we offer the visualization function by web application using Dash developed by the plotly community. 
  
 ### Development Flow
-Our development plan involves 3 steps:
+Our development plan involves 4 steps:
 1. Interact with LinkedIn API and obtain some data by python scripts
-2. visualize the obtained set of data by various ways using plotly 
-3. implement web application which generate charts based on the user input (e.g. When user request her/his connection visualization, our web app returns a illustration the represents the user's co-relation with other users).
-4. The following is the list of future works
-- Add more interactive function. 
-  (e.g. Can see a list of people with whom a user connected during a certain period, where the period is determined by a move of slider (GUI component))
-- Add more graph to visualize Connection data
-- Add other visualization such as communicated message analysis using Natural Language processing Technique. Users can select "Connection Vizualization" or "message Visualization"
- 
+2. Visualize the obtained set of data by various ways using plotly 
+3. Implement web application which generate charts based on the user input (e.g. When user request her/his connection visualization, our web app returns a illustration the represents the user's co-relation with other users).
+4. Improvements
+  - Bug fix in csv file processing so that users do not have to remove "NOTE" included in the original connections.csv
+  - Improve the feature of interaction by adding checkbox and allow users to select graphs they want to see       
+  - Add some graphs and update visualization methods so that the output fits considered use cases               
+  - (Preparation of sample data so that everyone can try this application)    
+  - Deployment to a server        
+
 ### Reference
 - LinkedIn API Documentation : https://docs.microsoft.com/en-us/linkedin/
 - Plotly : https://plotly.com/python/
