@@ -85,7 +85,6 @@ def parse_contents(vizualize_list, contents, filename, date):
     for graph_name in graphs_html_map:
         if graph_name in vizualize_list:
             graphs_html_list.append(graphs_html_map[graph_name])
-    print(graphs_html_list)
 
     return html.Div(
     children=[
