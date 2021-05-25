@@ -1,4 +1,4 @@
-# Linkedin-visualization
+# Linkedin-visualizer
 https://linkedin-visualizer.herokuapp.com/
 
 ## Usage
