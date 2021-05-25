@@ -49,7 +49,7 @@ app.layout = html.Div(children=[
     html.Div(
           children=[
               html.H2(
-                  children="Select graphs you want to plot and upload a file", className="instruction"
+                  children="Select graphs you want to see and upload a file", className="instruction"
               ),
           ]
     ),
@@ -62,7 +62,8 @@ app.layout = html.Div(children=[
         {'label': 'Distribution of job positions your connected people (Histgram)', 'value': 'position_hist'},
         {'label': 'Companies where your connected people work (Treemap)', 'value': 'company_treemap'},
         {'label': 'Job positions of your connected people (Treemap)', 'value': 'position_treemap'},
-        {'label': 'Company and Job positions of your connected people (Hybrid Treemap)', 'value': 'company_position_treemap'}
+        {'label': 'Job positions of your connected people for each company (Hybrid Treemap)', 'value': 'company_position_treemap'},
+        {'label': 'Companies where your connected people work for each job position (Hybrid Treemap)', 'value': 'position_company_treemap'}
     ],
     value = ['trend', 'company_hist', 'position_hist', 'company_position_treemap'],
     labelStyle={'display': 'block'},

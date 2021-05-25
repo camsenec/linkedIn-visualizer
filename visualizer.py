@@ -66,12 +66,20 @@ def parse_contents(vizualize_list, contents, filename, date):
                     className="card",
                 )
 
+    position_company_treemap_html = html.Div(
+                    children=dcc.Graph(
+                        figure=graphs.position_company_treemap(connections_df)
+                    ),
+                    className="card",
+    )
+
     graphs_html_map = {"trend": trend_html, 
                    "company_hist": company_hist_html,
                    "position_hist": position_hist_html,
                    "company_treemap": company_treemap_html, 
                    "position_treemap": position_treemap_html,
-                   "company_position_treemap": company_position_treemap_html}
+                   "company_position_treemap": company_position_treemap_html,
+                   "position_company_treemap": position_company_treemap_html}
     
     graphs_html_list = []
     for graph_name in graphs_html_map:
