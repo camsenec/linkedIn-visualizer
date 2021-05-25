@@ -46,6 +46,14 @@ app.layout = html.Div(children=[
         multiple=True
     ),
 
+    html.Div(
+          children=[
+              html.H2(
+                  children="Select graphs you want to plot and upload a file", className="instruction"
+              ),
+          ]
+    ),
+
     dcc.Checklist(
     id = 'checklist',
     options=[
