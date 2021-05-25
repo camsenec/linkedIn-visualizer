@@ -51,18 +51,19 @@ app.layout = html.Div(children=[
     options=[
         {'label': 'Change of your number of Connections (Plot)', 'value': 'trend'},
         {'label': 'Distribution of companies your connected people work (Histgram)', 'value': 'company_hist'},
+        {'label': 'Distribution of job positions your connected people (Histgram)', 'value': 'position_hist'},
         {'label': 'Companies where your connected people work (Treemap)', 'value': 'company_treemap'},
-        {'label': 'Job positions of your connected people (Treemap)', 'value': 'position_treemap'}
+        {'label': 'Job positions of your connected people (Treemap)', 'value': 'position_treemap'},
+        {'label': 'Company and Job positions of your connected people (Hybrid Treemap)', 'value': 'company_position_treemap'}
     ],
-    value = ['trend', 'company_hist', 'company_treemap', 'position_treemap'],
+    value = ['trend', 'company_hist', 'position_hist', 'company_position_treemap'],
     labelStyle={'display': 'block'},
     style={
             'width': '100%',
             'height': '60px',
             'lineHeight': '30px',
             'marginTop' : '30px',
-            'marginLeft': '20px',
-            'marginBottom' : '100px',
+            'paddingBottom' : '150px',
             'textAlign': 'center',
         },
     ),

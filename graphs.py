@@ -38,6 +38,11 @@ def company_hist(connections_df):
     fig.update_layout(title='Distribution of companies your connected people work')
     return fig
 
+def position_hist(connections_df):
+    fig  = px.histogram(connections_df, x = "Position").update_xaxes(categoryorder="total descending")
+    fig.update_layout(title='Distribution of job positions of your connected people')
+    return fig
+
 # Companies where connected people work
 def company_treemap(connections_df):
     df_by_company = connections_df.groupby(by="Company").count().reset_index().sort_values(
@@ -55,5 +60,13 @@ def position_treemap(connections_df):
     position_treemap = px.treemap(df_by_position[:100], path=["Position"],
                     values="First Name",
                     labels={"First Name": "Count"})
-    position_treemap.update_layout(title='Job Positions of your connected people') 
+    position_treemap.update_layout(title='Job positions of your connected people') 
     return position_treemap
+
+def company_position_treemap(connections_df):
+    connections_df["PositionCount"] = 1
+    fig = px.treemap(connections_df, path=['Company', "Position"], 
+                    values="PositionCount",
+                    )
+    fig.update_layout(title='Job positions of your connected people for each company')
+    return fig
