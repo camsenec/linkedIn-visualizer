@@ -6,7 +6,7 @@ import base64
 import io
 
 
-def parse_contents(vizualize_list, contents, filename, date):
+def parse_contents(vizualize_list, contents, filename):
     content_type, content_string = contents.split(',')
 
     decoded = base64.b64decode(content_string)

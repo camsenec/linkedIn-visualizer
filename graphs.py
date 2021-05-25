@@ -5,12 +5,13 @@ import datetime
 # Changes of the number of connections
 def trend(connections_df):
     format_cand = ["%d %b %y", "%d %b %Y", "%d-%b-%y", "%d-%b-%Y"]
-    for format in format_cand:
+    for i, format in enumerate(format_cand):
         try:
             connections_df["Connected On"] = connections_df["Connected On"].apply(
                 lambda x: datetime.datetime.strptime(x, format).strftime("%Y-%m-%d"))
         except:
-            print("errror")
+            if i == len(format_cand) - 1:
+                print("Datetime format error")
             continue
         else:
             break

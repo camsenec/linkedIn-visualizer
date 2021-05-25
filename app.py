@@ -86,14 +86,14 @@ app.layout = html.Div(children=[
 @app.callback(Output('output-data-upload', 'children'),
               Input('checklist', 'value'),
               Input('upload-data', 'contents'),
-              State('upload-data', 'filename'),
-              State('upload-data', 'last_modified'))
-def update_output(list_of_values, list_of_contents, list_of_names, list_of_dates):
-    if list_of_contents is not None:
+              State('upload-data', 'filename'))
+def update_output(values, contents, filename):
+    if contents is not None:
         children = [
-            visualizer.parse_contents(list_of_values, c, n, d) for c, n, d in
-            zip(list_of_contents, list_of_names, list_of_dates)]
+            visualizer.parse_contents(values, c, f) for c, f in zip(contents, filename) 
+        ]
         return children
+    print("called")
 
 
 # main function
