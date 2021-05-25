@@ -5,12 +5,13 @@ import datetime
 # Changes of the number of connections
 def trend(connections_df):
     format_cand = ["%d %b %y", "%d %b %Y", "%d-%b-%y", "%d-%b-%Y"]
-    for format in format_cand:
+    for i, format in enumerate(format_cand):
         try:
             connections_df["Connected On"] = connections_df["Connected On"].apply(
                 lambda x: datetime.datetime.strptime(x, format).strftime("%Y-%m-%d"))
         except:
-            print("errror")
+            if i == len(format_cand) - 1:
+                print("Datetime format error")
             continue
         else:
             break
@@ -38,22 +39,45 @@ def company_hist(connections_df):
     fig.update_layout(title='Distribution of companies your connected people work')
     return fig
 
+def position_hist(connections_df):
+    fig  = px.histogram(connections_df, x = "Position").update_xaxes(categoryorder="total descending")
+    fig.update_layout(title='Distribution of job positions of your connected people')
+    return fig
+
 # Companies where connected people work
 def company_treemap(connections_df):
-    df_by_company = connections_df.groupby(by="Company").count().reset_index().sort_values(
-        by="First Name", ascending=False).reset_index(drop=True)
-    company_treemap = px.treemap(df_by_company[:100], path=["Company"],
-                    values="First Name",
-                    labels={"First Name": "Count"})
-    company_treemap.update_layout(title='Companies where your connected people work')
-    return company_treemap
+    connections_df["CompanyCount"] = 1
+    connections_df["Name"] = connections_df["First Name"] + " " + connections_df["Last Name"]
+    fig = px.treemap(connections_df, path=['Company', "Name"], 
+                    values="CompanyCount",
+                    )
+    fig.update_layout(title='Companies where your connected people work')
+    return fig
 
 # Job Positions of connected people
 def position_treemap(connections_df):
-    df_by_position = connections_df.groupby(by="Position").count().reset_index().sort_values(
-        by="First Name", ascending=False).reset_index(drop=True)
-    position_treemap = px.treemap(df_by_position[:100], path=["Position"],
-                    values="First Name",
-                    labels={"First Name": "Count"})
-    position_treemap.update_layout(title='Job Positions of your connected people') 
-    return position_treemap
+    connections_df["PositionCount"] = 1
+    connections_df["Name"] = connections_df["First Name"] + " " + connections_df["Last Name"]
+    fig = px.treemap(connections_df, path=["Position", "Name"], 
+                    values="PositionCount",
+                    )
+    fig.update_layout(title='Job positions of your connected people') 
+    return fig
+
+def company_position_treemap(connections_df):
+    connections_df["PositionCount"] = 1
+    connections_df["Name"] = connections_df["First Name"] + " " + connections_df["Last Name"]
+    fig = px.treemap(connections_df, path=['Company', "Position", "Name"], 
+                    values="PositionCount",
+                    )
+    fig.update_layout(title='Job positions of your connected people for each company')
+    return fig
+
+def position_company_treemap(connections_df):
+    connections_df["PositionCount"] = 1
+    connections_df["Name"] = connections_df["First Name"] + " " + connections_df["Last Name"]
+    fig = px.treemap(connections_df, path=['Position', "Company", "Name"], 
+                    values="PositionCount",
+                    )
+    fig.update_layout(title='Job positions of your connected people for each company')
+    return fig

@@ -6,7 +6,7 @@ import base64
 import io
 
 
-def parse_contents(contents, filename, date):
+def parse_contents(vizualize_list, contents, filename):
     content_type, content_string = contents.split(',')
 
     decoded = base64.b64decode(content_string)
@@ -26,36 +26,70 @@ def parse_contents(contents, filename, date):
         return html.Div([
             'There was an error processing this file.'
         ])
-
-    return html.Div(
-    children=[
-        html.Div(
-            children=[
-                html.Div(
+    
+    #HTML component for each graph defined in graphs.py 
+    trend_html = html.Div(
                     children=dcc.Graph(
                       figure=graphs.trend(connections_df)
                     ),
                     className="card",
-                ),
-                html.Div(
+                )
+    company_hist_html = html.Div(
                     children=dcc.Graph(
                         figure=graphs.company_hist(connections_df)
                     ),
                     className="card",
-                ),
-                html.Div(
+                )
+    position_hist_html = html.Div(
+                    children=dcc.Graph(
+                        figure=graphs.position_hist(connections_df)
+                    ),
+                    className="card",
+                )
+
+    company_treemap_html = html.Div(
                     children=dcc.Graph(
                         figure=graphs.company_treemap(connections_df)
                     ),
                     className="card",
-                ),
-                html.Div(
+                )
+    position_treemap_html = html.Div(
                     children=dcc.Graph(
                         figure=graphs.position_treemap(connections_df)
                     ),
                     className="card",
-                ),
-            ],
+                )
+    company_position_treemap_html = html.Div(
+                    children=dcc.Graph(
+                        figure=graphs.company_position_treemap(connections_df)
+                    ),
+                    className="card",
+                )
+
+    position_company_treemap_html = html.Div(
+                    children=dcc.Graph(
+                        figure=graphs.position_company_treemap(connections_df)
+                    ),
+                    className="card",
+    )
+
+    graphs_html_map = {"trend": trend_html, 
+                   "company_hist": company_hist_html,
+                   "position_hist": position_hist_html,
+                   "company_treemap": company_treemap_html, 
+                   "position_treemap": position_treemap_html,
+                   "company_position_treemap": company_position_treemap_html,
+                   "position_company_treemap": position_company_treemap_html}
+    
+    graphs_html_list = []
+    for graph_name in graphs_html_map:
+        if graph_name in vizualize_list:
+            graphs_html_list.append(graphs_html_map[graph_name])
+
+    return html.Div(
+    children=[
+        html.Div(
+            children=graphs_html_list,
             className="wrapper",
         ),
     ]

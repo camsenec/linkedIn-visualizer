@@ -16,7 +16,7 @@ app.layout = html.Div(children=[
     html.Div(
           children=[
               html.H1(
-                  children="LinkedIn Vizualizer", className="header-title"
+                  children="LinkedIn Visualizer", className="header-title"
               ),
               html.P(
                   children="Analyze your LinkedIn Data",
@@ -45,6 +45,37 @@ app.layout = html.Div(children=[
         # Allow multiple files to be uploaded
         multiple=True
     ),
+
+    html.Div(
+          children=[
+              html.H2(
+                  children="Select graphs you want to see and upload a file", className="instruction"
+              ),
+          ]
+    ),
+
+    dcc.Checklist(
+    id = 'checklist',
+    options=[
+        {'label': 'Change of your number of Connections (Plot)', 'value': 'trend'},
+        {'label': 'Distribution of companies your connected people work (Histgram)', 'value': 'company_hist'},
+        {'label': 'Distribution of job positions your connected people (Histgram)', 'value': 'position_hist'},
+        {'label': 'Companies where your connected people work (Treemap)', 'value': 'company_treemap'},
+        {'label': 'Job positions of your connected people (Treemap)', 'value': 'position_treemap'},
+        {'label': 'Job positions of your connected people for each company (Hybrid Treemap)', 'value': 'company_position_treemap'},
+        {'label': 'Companies where your connected people work for each job position (Hybrid Treemap)', 'value': 'position_company_treemap'}
+    ],
+    value = ['trend', 'company_hist', 'position_hist', 'company_position_treemap'],
+    labelStyle={'display': 'block'},
+    style={
+            'width': '100%',
+            'height': '60px',
+            'lineHeight': '30px',
+            'marginTop' : '30px',
+            'paddingBottom' : '150px',
+            'textAlign': 'center',
+        },
+    ),
     # a hidden html element
     html.Div(id='output-data-upload'),
 ])
@@ -53,14 +84,15 @@ app.layout = html.Div(children=[
 # call back function, which receive csv file as `Input` and have two states namely filename and last_modified and replace the HTML element id=`output-data-upload` with returned value.
 # i.e. children = [`the returned value by the function parse_contents`] are retuned by update_output and displayed at the place with `html.Div(id='output-data-upload)`  
 @app.callback(Output('output-data-upload', 'children'),
+              Input('checklist', 'value'),
               Input('upload-data', 'contents'),
-              State('upload-data', 'filename'),
-              State('upload-data', 'last_modified'))
-def update_output(list_of_contents, list_of_names, list_of_dates):
-    if list_of_contents is not None:
+              State('upload-data', 'filename'))
+def update_output(values, contents, filename):
+    #print("called")
+    if contents is not None:
         children = [
-            visualizer.parse_contents(c, n, d) for c, n, d in
-            zip(list_of_contents, list_of_names, list_of_dates)]
+            visualizer.parse_contents(values, c, f) for c, f in zip(contents, filename) 
+        ]
         return children
 
 

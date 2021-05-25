@@ -25,6 +25,12 @@ body {
     max-width: 384px;
 }
 
+.instruction {
+    color: #23395d;
+    margin-top: 40px;
+    text-align: center;
+}
+
 .wrapper {
     margin-right: auto;
     margin-left: auto;
@@ -38,5 +44,4 @@ body {
     margin-bottom: 30px;
     box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.18);
 }
-
 
