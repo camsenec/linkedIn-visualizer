@@ -93,7 +93,6 @@ def update_output(values, contents, filename):
             visualizer.parse_contents(values, c, f) for c, f in zip(contents, filename) 
         ]
         return children
-    print("called")
 
 
 # main function
