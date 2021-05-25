@@ -79,5 +79,5 @@ def position_company_treemap(connections_df):
     fig = px.treemap(connections_df, path=['Position', "Company", "Name"], 
                     values="PositionCount",
                     )
-    fig.update_layout(title='Job positions of your connected people for each company')
+    fig.update_layout(title='Companies where your connected people work for each job position')
     return fig
