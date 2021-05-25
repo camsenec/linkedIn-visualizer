@@ -45,6 +45,27 @@ app.layout = html.Div(children=[
         # Allow multiple files to be uploaded
         multiple=True
     ),
+
+    dcc.Checklist(
+    id = 'checklist',
+    options=[
+        {'label': 'Change of your number of Connections (Plot)', 'value': 'trend'},
+        {'label': 'Distribution of companies your connected people work (Histgram)', 'value': 'company_hist'},
+        {'label': 'Companies where your connected people work (Treemap)', 'value': 'company_treemap'},
+        {'label': 'Job positions of your connected people (Treemap)', 'value': 'position_treemap'}
+    ],
+    value = ['trend', 'company_hist', 'company_treemap', 'position_treemap'],
+    labelStyle={'display': 'block'},
+    style={
+            'width': '100%',
+            'height': '60px',
+            'lineHeight': '30px',
+            'marginTop' : '30px',
+            'marginLeft': '20px',
+            'marginBottom' : '100px',
+            'textAlign': 'center',
+        },
+    ),
     # a hidden html element
     html.Div(id='output-data-upload'),
 ])
@@ -53,13 +74,14 @@ app.layout = html.Div(children=[
 # call back function, which receive csv file as `Input` and have two states namely filename and last_modified and replace the HTML element id=`output-data-upload` with returned value.
 # i.e. children = [`the returned value by the function parse_contents`] are retuned by update_output and displayed at the place with `html.Div(id='output-data-upload)`  
 @app.callback(Output('output-data-upload', 'children'),
+              Input('checklist', 'value'),
               Input('upload-data', 'contents'),
               State('upload-data', 'filename'),
               State('upload-data', 'last_modified'))
-def update_output(list_of_contents, list_of_names, list_of_dates):
+def update_output(list_of_values, list_of_contents, list_of_names, list_of_dates):
     if list_of_contents is not None:
         children = [
-            visualizer.parse_contents(c, n, d) for c, n, d in
+            visualizer.parse_contents(list_of_values, c, n, d) for c, n, d in
             zip(list_of_contents, list_of_names, list_of_dates)]
         return children
 
