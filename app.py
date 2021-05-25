@@ -88,6 +88,7 @@ app.layout = html.Div(children=[
               Input('upload-data', 'contents'),
               State('upload-data', 'filename'))
 def update_output(values, contents, filename):
+    #print("called")
     if contents is not None:
         children = [
             visualizer.parse_contents(values, c, f) for c, f in zip(contents, filename) 
