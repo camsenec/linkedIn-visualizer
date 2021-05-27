@@ -35,20 +35,25 @@ def trend(connections_df):
 
 # Distribution of companies connected people work at
 def company_hist(connections_df):
+    #connections_df = connections_df.dropna(subset=['Position', 'Company'])
     fig  = px.histogram(connections_df, x = "Company")
     fig.update_layout(title='Distribution of companies your connected people work')
     return fig
 
 def position_hist(connections_df):
+    #connections_df = connections_df.dropna(subset=['Position', 'Company'])
     fig  = px.histogram(connections_df, x = "Position").update_xaxes(categoryorder="total descending")
     fig.update_layout(title='Distribution of job positions of your connected people')
     return fig
 
 # Companies where connected people work
 def company_treemap(connections_df):
+    connections_df['Company'] = connections_df['Company'].fillna("Other")
+    connections_df['Position'] = connections_df['Position'].fillna("other")
+    #connections_df = connections_df.dropna(subset=['Position', 'Company'])
     connections_df["CompanyCount"] = 1
     connections_df["Name"] = connections_df["First Name"] + " " + connections_df["Last Name"]
-    fig = px.treemap(connections_df, path=['Company', "Name"], 
+    fig = px.treemap(connections_df, path=['Company', "Last Name"],
                     values="CompanyCount",
                     )
     fig.update_layout(title='Companies where your connected people work')
@@ -56,6 +61,9 @@ def company_treemap(connections_df):
 
 # Job Positions of connected people
 def position_treemap(connections_df):
+    #connections_df = connections_df.dropna(subset=['Position', 'Company'])
+    connections_df['Company'] = connections_df['Company'].fillna("Other")
+    connections_df['Position'] = connections_df['Position'].fillna("Other")
     connections_df["PositionCount"] = 1
     connections_df["Name"] = connections_df["First Name"] + " " + connections_df["Last Name"]
     fig = px.treemap(connections_df, path=["Position", "Name"], 
@@ -65,15 +73,21 @@ def position_treemap(connections_df):
     return fig
 
 def company_position_treemap(connections_df):
+    #connections_df = connections_df.dropna(subset=['Position', 'Company'])
+    connections_df['Company'] = connections_df['Company'].fillna("Other")
+    connections_df['Position'] = connections_df['Position'].fillna("Other")
     connections_df["PositionCount"] = 1
     connections_df["Name"] = connections_df["First Name"] + " " + connections_df["Last Name"]
-    fig = px.treemap(connections_df, path=['Company', "Position", "Name"], 
+    fig = px.treemap(connections_df, path=['Company', 'Position', 'Name'], 
                     values="PositionCount",
                     )
     fig.update_layout(title='Companies where your connected people work for each job position')
     return fig
 
 def position_company_treemap(connections_df):
+    #connections_df = connections_df.dropna(subset=['Position', 'Company'])
+    connections_df['Company'] = connections_df['Company'].fillna("Other")
+    connections_df['Position'] = connections_df['Position'].fillna("Other")
     connections_df["PositionCount"] = 1
     connections_df["Name"] = connections_df["First Name"] + " " + connections_df["Last Name"]
     fig = px.treemap(connections_df, path=['Position', "Company", "Name"], 
